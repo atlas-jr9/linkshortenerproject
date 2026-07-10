@@ -34,11 +34,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "dark", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <ClerkProvider
-          appearance={{ theme: shadcn }}
-          signInForceRedirectUrl="/dashboard"
-          signUpForceRedirectUrl="/dashboard"
-        >
+        <ClerkProvider appearance={{ theme: shadcn }}>
           <header className="border-b border-border/70 bg-background/80 px-6 py-4 backdrop-blur">
             <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
               <Link href="/" className="font-display text-lg font-semibold tracking-tight">
@@ -46,8 +42,8 @@ export default function RootLayout({
               </Link>
               <div className="flex items-center gap-2">
                 <Show when="signed-out">
-                  <SignInButton mode="modal" forceRedirectUrl="/dashboard" />
-                  <SignUpButton mode="modal" forceRedirectUrl="/dashboard" />
+                  <SignInButton mode="modal" />
+                  <SignUpButton mode="modal" />
                 </Show>
                 <Show when="signed-in">
                   <UserButton />

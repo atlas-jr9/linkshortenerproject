@@ -74,13 +74,13 @@ export default async function Home() {
                 Link Shortener helps you create clean URLs, protect them with Clerk authentication, and keep every link organized in one polished dashboard.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
+                <SignUpButton mode="modal">
                   <Button size="lg" className="rounded-full px-6 shadow-sm">
                     Start for free
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </SignUpButton>
-                <SignInButton mode="modal" forceRedirectUrl="/dashboard">
+                <SignInButton mode="modal">
                   <Button variant="outline" size="lg" className="rounded-full px-6">
                     Sign in
                   </Button>
