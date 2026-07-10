@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { shadcn } from "@clerk/ui/themes";
@@ -33,16 +34,20 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "dark", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <ClerkProvider appearance={{ theme: shadcn }}>
+        <ClerkProvider
+          appearance={{ theme: shadcn }}
+          signInForceRedirectUrl="/dashboard"
+          signUpForceRedirectUrl="/dashboard"
+        >
           <header className="border-b border-border/70 bg-background/80 px-6 py-4 backdrop-blur">
             <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
-              <a href="/" className="text-lg font-semibold tracking-tight">
+              <Link href="/" className="font-display text-lg font-semibold tracking-tight">
                 Link Shortener
-              </a>
+              </Link>
               <div className="flex items-center gap-2">
                 <Show when="signed-out">
-                  <SignInButton mode="modal" />
-                  <SignUpButton mode="modal" />
+                  <SignInButton mode="modal" forceRedirectUrl="/dashboard" />
+                  <SignUpButton mode="modal" forceRedirectUrl="/dashboard" />
                 </Show>
                 <Show when="signed-in">
                   <UserButton />

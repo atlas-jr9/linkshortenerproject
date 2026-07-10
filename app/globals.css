@@ -50,6 +50,7 @@
 }
 
 :root {
+  --font-display: "Avenir Next", "Avenir", "Aveny-T", "Segoe UI", "Inter", sans-serif;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -124,8 +125,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-display);
   }
   html {
     @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
   }
 }
